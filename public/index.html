@@ -42,15 +42,11 @@
         <i id="nav-arrow" class="fas fa-angle-double-down"></i>
       </div>
     </nav>
-    <header>
+    <header class="header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
-      <br>
-      <div>
-          <h2>Zoheb</h2>
-      </div>
-  </header>
+    </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
@@ -63,7 +59,28 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+        <section id="tweet-container">
+          <article class="tweet">
+            <header>
+              <div>
+                <img src="#">
+                <p>User</p>
+              </div>
+              <p>@user</p>
+            </header>
+            <p>Tweet Text</p>
+            <footer>
+              <p>8 days ago</p>
+              <div class="icon-container">
+                <i class="fas fa-flag"></i>
+                <i class="fas fa-retweet"></i>
+                <i class="fas fa-heart"></i>
+              </div>
+            </footer>
+          </article>
+        </section>
       </section>
     </main>
+    <script src="scripts/composer-char-counter.js"></script>
   </body>
 </html>
