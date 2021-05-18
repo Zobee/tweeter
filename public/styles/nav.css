@@ -21,6 +21,10 @@ nav span{
   align-items: center;
 }
 
+#nav-right p {
+  margin: 0;
+}
+
 #nav-arrow{
   color: red;
 }
