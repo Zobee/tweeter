@@ -50,8 +50,14 @@ const createTweetElement = (tweetObj) => {
 
 const renderTweets = (tweets) => tweets.map(tweet => $('#tweet-container').append(createTweetElement(tweet)));
 
+const loadTweets = () => {
+  $.get("/tweets")
+  .then(tweets => renderTweets(tweets))
+  .catch(err => console.log)
+}
+
 $(document).ready(function() {
-  renderTweets(data);
+  loadTweets()
   $(".new-tweet form").on("submit", function(e){
     e.preventDefault()
     const serializedTweet = $(this).serialize()
