@@ -52,4 +52,9 @@ const renderTweets = (tweets) => tweets.map(tweet => $('#tweet-container').appen
 
 $(document).ready(function() {
   renderTweets(data);
+  $(".new-tweet form").on("submit", function(e){
+    e.preventDefault()
+    const serializedTweet = $(this).serialize()
+    $.post("/tweets", serializedTweet)
+  })
 })
