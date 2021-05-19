@@ -53,14 +53,22 @@ const renderTweets = (tweets) => tweets.map(tweet => $('#tweet-container').appen
 const loadTweets = () => {
   $.get("/tweets")
   .then(tweets => renderTweets(tweets))
-  .catch(err => console.log)
+  .catch(err => console.log(err))
 }
 
 $(document).ready(function() {
   loadTweets()
   $(".new-tweet form").on("submit", function(e){
     e.preventDefault()
-    const serializedTweet = $(this).serialize()
-    $.post("/tweets", serializedTweet)
+    const outputVal = $(this).children(".tweet-btn-container").children('.counter').val()
+    const tweet = $(this).children('#tweet-text').val()
+    if(Number(outputVal) < 0) {
+      alert("Error: Tweet length exceeds 140 characters!")
+    } else if (tweet === "" || tweet === null) {
+      alert("Error: Tweet can't be empty!")
+    } else {
+      const serializedTweet = $(this).serialize();
+      $.post("/tweets", serializedTweet)
+    }
   })
 })
