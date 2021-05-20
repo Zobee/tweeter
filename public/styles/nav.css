@@ -20,7 +20,7 @@ nav > span{
   align-items: center;
 }
 
-.compose {
+#compose {
   background-color: inherit;
   outline: none;
   border: none;
@@ -28,19 +28,19 @@ nav > span{
   cursor: pointer;
 }
 
-.compose:hover i{
+#compose:hover i{
   transform: translateY(0.25em);
 }
 
-.compose p span{
+#compose p span{
   font-weight: 600;
 }
 
-.compose p {
+#compose p {
   margin: 0;
 }
 
-.compose i{
+#compose i{
   color: red;
 }
 

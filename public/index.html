@@ -47,7 +47,7 @@
     <nav>
       <span id="tweeter-logo">tweeter</span>
       <div id="nav-right">
-        <button class='compose'>
+        <button id='compose'>
           <p><span>Write</span> a new tweet</p>
           <i class="fas fa-angle-double-down"></i>
         </button>
@@ -64,7 +64,7 @@
         </div>
       </header>
       <!-- Page-specific (main) content here -->
-      <main class="container">
+      <main>
         <section class="new-tweet">
           <h2>Compose Tweet</h2>
           <form method="POST" action="/tweets">
@@ -75,11 +75,13 @@
               <output name="counter" class="counter" for="tweet-text">140</output>
             </div>
           </form>
-          <section id="tweet-container">
-          </section>
+        </section>
+        <section id="tweet-container">
         </section>
       </main>
     </div>
+  </div>
     <script src="scripts/composer-char-counter.js"></script>
+    <script src="scripts/toggleTweetBox.js"></script>
   </body>
 </html>
