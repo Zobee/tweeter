@@ -9,3 +9,16 @@
   background-image: url("../images//batthern.png");
   color: #FFF;
 }
+
+/* Laptops / Desktops: minimum width of 1024px */
+@media only screen and (min-width: 1024px) {
+  .header{
+    height: 50vh;
+    width: 75vw;
+    margin-left: 2em;
+  }
+
+  br{
+    display: none;
+  }
+}

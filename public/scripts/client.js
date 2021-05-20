@@ -54,9 +54,6 @@ $(document).ready(function() {
   //Load initial tweets
   loadTweets()
 
-  //loadTweets function seems to outpace the POST sometimes, even using .then / .done 
-  //Limitation: Highlighting and removing doesn't update the text counter
-
   //On Submission
   $(".new-tweet form").on("submit", function(e){
     e.preventDefault()

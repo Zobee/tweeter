@@ -31,3 +31,10 @@
  border: none;
  padding: 0.5em 1em;
 }
+
+@media only screen and (min-width: 1024px) {
+  .new-tweet h2{
+    padding-top: 0;
+    margin-top: 0;
+  }
+}
