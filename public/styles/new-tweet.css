@@ -21,15 +21,24 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 1em;
+  font-weight: 900;
 }
 
 .tweet-btn-container > button {
- background-color: #4056A1;
- color: #FFF;
- font-weight: 800;
- outline: none;
- border: none;
- padding: 0.5em 1em;
+  background-color: #4056A1;
+  color: #FFF;
+  font-weight: 800;
+  outline: none;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.tweet-btn-container > button:hover{
+  background-color: #687bb9;
+  transform: translateX(0.1em);
+  transform: translateY(0.05em);
 }
 
 @media only screen and (min-width: 1024px) {
@@ -37,4 +46,5 @@
     padding-top: 0;
     margin-top: 0;
   }
+
 }
