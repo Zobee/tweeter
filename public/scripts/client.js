@@ -1,29 +1,3 @@
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
-
 const createTweetElement = (tweetObj) => {
   const $tweet = $(`
   <article class="tweet">
@@ -48,27 +22,42 @@ const createTweetElement = (tweetObj) => {
   return $tweet
 }
 
+const sortByLatestTweet = (tweets) => {
+  const sortedTweets = [...tweets];
+  sortedTweets.sort((a,b) => {
+    return b.created_at - a.created_at;
+  })
+  return sortedTweets;
+}
+
 const renderTweets = (tweets) => tweets.map(tweet => $('#tweet-container').append(createTweetElement(tweet)));
 
 const loadTweets = () => {
   $.get("/tweets")
+  .then(tweets => sortByLatestTweet(tweets))
   .then(tweets => renderTweets(tweets))
   .catch(err => console.log(err))
 }
 
 $(document).ready(function() {
+  //Load initial tweets
   loadTweets()
+
+  //On Submission
   $(".new-tweet form").on("submit", function(e){
     e.preventDefault()
     const outputVal = $(this).children(".tweet-btn-container").children('.counter').val()
-    const tweet = $(this).children('#tweet-text').val()
+    let tweet = $(this).children('#tweet-text')
     if(Number(outputVal) < 0) {
       alert("Error: Tweet length exceeds 140 characters!")
-    } else if (tweet === "" || tweet === null) {
+    } else if (tweet.val() === "" || tweet.val() === null) {
       alert("Error: Tweet can't be empty!")
     } else {
       const serializedTweet = $(this).serialize();
       $.post("/tweets", serializedTweet)
+      .then(tweet.val(''))
+      .then($("#tweet-container").empty())
+      .then(loadTweets())
     }
   })
 })
