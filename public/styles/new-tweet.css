@@ -3,6 +3,7 @@
 }
 .new-tweet {
   min-width: 100%;
+  display: none;
 }
 
 .new-tweet > form{
