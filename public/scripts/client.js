@@ -1,16 +1,25 @@
+//Escape function. Used to prevent XSS from malicious tweets
+const escape = (str) => {
+  const div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = (tweetObj) => {
+  const {user, content, created_at} = tweetObj;
+  const escapedContent = escape(content.text)
   const $tweet = $(`
   <article class="tweet">
     <header>
       <div>
-        <img src="${tweetObj.user.avatars}"> 
-        <h3>${tweetObj.user.name}</h3>
+        <img src="${user.avatars}"> 
+        <h3>${user.name}</h3>
       </div>
-      <h3>${tweetObj.user.handle}</h3>
+      <h3>${user.handle}</h3>
     </header>
-    <h2>${tweetObj.content.text}</h2>
+    <h2>${escapedContent}</h2>
     <footer>
-      <h5>${timeago.format(tweetObj.created_at)}</h5>
+      <h5>${timeago.format(created_at)}</h5>
       <div class="icon-container">
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>
@@ -39,25 +48,31 @@ const loadTweets = () => {
   .catch(err => console.log(err))
 }
 
+const $error = $(`<div></div>`)
+
 $(document).ready(function() {
   //Load initial tweets
   loadTweets()
 
+  //loadTweets function seems to outpace the POST sometimes, even using .then / .done 
+  //Limitation: Highlighting and removing doesn't update the text counter
+
   //On Submission
   $(".new-tweet form").on("submit", function(e){
     e.preventDefault()
+    $(".new-tweet > .error").remove()
     const outputVal = $(this).children(".tweet-btn-container").children('.counter').val()
     let tweet = $(this).children('#tweet-text')
     if(Number(outputVal) < 0) {
-      alert("Error: Tweet length exceeds 140 characters!")
+      $(".new-tweet > h2").after($error.text("⚠️ Error: Tweet length exceeds 140 characters!").addClass("error"))
     } else if (tweet.val() === "" || tweet.val() === null) {
-      alert("Error: Tweet can't be empty!")
+      $(".new-tweet > h2").after($error.text("⚠️ Error: Tweet can't be empty!").addClass("error"))
     } else {
       const serializedTweet = $(this).serialize();
       $.post("/tweets", serializedTweet)
-      .then(tweet.val(''))
-      .then($("#tweet-container").empty())
-      .then(loadTweets())
+      .done($('#tweet-container').empty())
+      .done(tweet.val(""))
+      .done(loadTweets())
     }
   })
 })
