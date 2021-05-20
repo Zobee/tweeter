@@ -38,6 +38,34 @@ main{
   margin: 0;
  }
 
+ .scroll-to-top-btn {
+   z-index: 1;
+   display: none;
+   cursor: pointer;
+   border-radius: 50%;
+   background-color: red;
+   color: #FFFFFF;
+   height: 5em;
+   width: 5em;
+   position: fixed;
+   right: 0;
+   bottom: 0;
+   margin-bottom: 1em;
+   margin-right: 1em;
+ }
+
+ .scroll-to-top-btn, .scroll-to-top-btn i{
+  transition: all 0.5s ease;
+ }
+
+ .scroll-to-top-btn:hover{
+   background-color: #D00;
+ }
+
+ .scroll-to-top-btn:hover i{
+  transform: translateY(-0.2em);
+ }
+
    /* Laptops / Desktops: minimum width of 1024px */
 @media only screen and (min-width: 1024px) {
   .main-container{

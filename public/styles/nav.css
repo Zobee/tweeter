@@ -28,8 +28,16 @@ nav > span{
   cursor: pointer;
 }
 
+#compose i, #compose p{
+  transition: all 0.25s ease;
+}
+
+#compose:hover{
+  font-weight: 900;
+}
+
 #compose:hover i{
-  transform: translateY(0.25em);
+  transform: translateY(0.4em);
 }
 
 #compose p span{
