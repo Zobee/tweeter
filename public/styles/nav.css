@@ -5,6 +5,7 @@ nav{
   padding: 0 1.5em;
   display: flex;
   justify-content: space-between;
+  background-color: #4056A1;
   align-items: center;
   position: fixed;
   z-index: 1;

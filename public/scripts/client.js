@@ -61,9 +61,9 @@ $(document).ready(function() {
   $(".new-tweet form").on("submit", function(e){
     e.preventDefault()
     $(".new-tweet > .error").remove()
-    const outputVal = $(this).children(".tweet-btn-container").children('.counter').val()
+    const output = $(this).children(".tweet-btn-container").children('.counter')
     let tweet = $(this).children('#tweet-text')
-    if(Number(outputVal) < 0) {
+    if(Number(output.val()) < 0) {
       $(".new-tweet > h2").after($error.text("⚠️ Error: Tweet length exceeds 140 characters!").addClass("error"))
     } else if (tweet.val() === "" || tweet.val() === null) {
       $(".new-tweet > h2").after($error.text("⚠️ Error: Tweet can't be empty!").addClass("error"))
@@ -71,8 +71,9 @@ $(document).ready(function() {
       const serializedTweet = $(this).serialize();
       $.post("/tweets", serializedTweet)
       .done($('#tweet-container').empty())
+      .done(loadTweets)
       .done(tweet.val(""))
-      .done(loadTweets())
+      .done(output.val(140))
     }
   })
 })
