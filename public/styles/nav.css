@@ -10,7 +10,7 @@ nav{
   z-index: 1;
 }
 
-nav span{
+nav > span{
   font-family: 'Bungee', sans-serif;
 }
 
@@ -20,11 +20,27 @@ nav span{
   align-items: center;
 }
 
-#nav-right p {
+.compose {
+  background-color: inherit;
+  outline: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.compose:hover i{
+  transform: translateY(0.25em);
+}
+
+.compose p span{
+  font-weight: 600;
+}
+
+.compose p {
   margin: 0;
 }
 
-#nav-arrow{
+.compose i{
   color: red;
 }
 

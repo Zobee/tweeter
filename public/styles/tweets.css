@@ -1,7 +1,6 @@
 .tweet {
   margin: 1em 0;
   border: solid 5px black;
-  transition: all 0.5s ease;
 }
 
 .tweet:hover {
@@ -53,7 +52,6 @@
 
 .tweet footer .icon-container i {
   color: #55B;
-  transition: all 0.25s ease;
 }
 
 .tweet footer .icon-container i:hover {
