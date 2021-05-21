@@ -7,7 +7,7 @@ const escape = (str) => {
 
 const createTweetElement = (tweetObj) => {
   const {user, content, created_at} = tweetObj;
-  const escapedContent = escape(content.text)
+  const escapedContent = escape(content.text);
   const $tweet = $(`
   <article class="tweet">
     <header>
@@ -28,7 +28,7 @@ const createTweetElement = (tweetObj) => {
     </footer>
 </article>
 `);
-  return $tweet
+  return $tweet;
 }
 
 const sortByLatestTweet = (tweets) => {
@@ -48,11 +48,11 @@ const loadTweets = () => {
   .catch(err => console.log(err))
 }
 
-const $error = $(`<div></div>`)
+const $error = $(`<div></div>`);
 
 $(document).ready(function() {
   //Load initial tweets
-  loadTweets()
+  loadTweets();
 
   //On Submission
   $(".new-tweet form").on("submit", function(e){

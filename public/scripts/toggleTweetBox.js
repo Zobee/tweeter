@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  $("#compose").on("click", function(e) {
+  $("#compose").on("click", function() {
     $(".new-tweet").toggle("slow", () => {
-      $(".new-tweet textarea").focus()
-    })
-  })
-}); 
+      $(".new-tweet textarea").focus();
+    });
+  });
+});

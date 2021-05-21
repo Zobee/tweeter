@@ -1,18 +1,18 @@
 $(document).ready(function() {
-  let toTopBtn = $(".scroll-to-top-btn")
+  let toTopBtn = $(".scroll-to-top-btn");
 
-  toTopBtn.on("click", function(){
-    $(window).scrollTop(0)
-  })
+  toTopBtn.on("click", function() {
+    $("html").animate({scrollTop: 0}, 500);
+  });
 
   $(window).scroll(() => {
-    let scrollLocation = $(window).scrollTop()
-    if(scrollLocation > 50){
-      toTopBtn.show();
-      $("nav").hide("slow");
+    let scrollLocation = $(window).scrollTop();
+    if (scrollLocation > 150) {
+      toTopBtn.show(150);
+      $("nav").hide();
     } else {
-      toTopBtn.hide();
-      $("nav").show("slow");
+      toTopBtn.hide(150);
+      $("nav").show();
     }
-  })
+  });
 }); 
