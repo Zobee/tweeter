@@ -10,13 +10,11 @@
   color: #FFF;
 }
 
-/* Laptops / Desktops: minimum width of 1024px */
 @media only screen and (min-width: 1024px) {
   .header{
     height: 60vh;
     width: 50vw;
     margin-left: 2em;
-    border: solid 1px black;
   }
 
   br{

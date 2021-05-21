@@ -29,7 +29,7 @@ nav > span{
 }
 
 #compose i, #compose p{
-  transition: all 0.25s ease;
+  transition: all 0.5s ease;
 }
 
 #compose:hover{
@@ -52,9 +52,8 @@ nav > span{
   color: red;
 }
 
-  /* Laptops / Desktops: minimum width of 1024px */
-  @media only screen and (min-width: 1024px) {
-    nav{
-      background-color: #4056A1;
-    }
+@media only screen and (min-width: 1024px) {
+  nav{
+    background-color: #4056A1;
   }
+}

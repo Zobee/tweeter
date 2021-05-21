@@ -3,26 +3,19 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-    <!-- Nav CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    
-    <!-- Header CSS -->
     <link rel="stylesheet" href="/styles/header.css" type="text/css"/>
-    
-    <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    
-    <!-- New Tweet CSS-->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-    
-    <!-- Tweets CSS-->
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
-
-    <!-- Error CSS-->
     <link rel="stylesheet" href="/styles/error.css" type="text/css" />
 
     <!-- External Fonts-->
@@ -34,14 +27,11 @@
     
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
-    
-    <!-- FA -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- Timeago -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="scripts/toggleTweetBox.js"></script>
+    <script type="text/javascript" src="scripts/toggleScrollToTop.js"></script>
   </head>
-
+  
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
@@ -53,17 +43,17 @@
         </button>
       </div>
     </nav>
-    <div class="main-container">
+    <div class="content-container">
       <header class="header">
         <div>
             <img src="/images/profile-hex.png"> 
         </div>
         <br>
         <div>
-            <h2>USER</h2>
+            <h2>Zoheb</h2>
         </div>
       </header>
-      <!-- Page-specific (main) content here -->
+      <!-- Page-specific (main) content -->
       <main>
         <section class="new-tweet">
           <h2>Compose Tweet</h2>
@@ -76,16 +66,12 @@
             </div>
           </form>
         </section>
-        <section id="tweet-container">
-        </section>
+        <section id="tweet-container"></section>
         <button class="scroll-to-top-btn">
           <i class="fas fa-angle-double-up fa-2x"></i>
         </button>
       </main>
     </div>
   </div>
-    <script src="scripts/composer-char-counter.js"></script>
-    <script src="scripts/toggleTweetBox.js"></script>
-    <script src="scripts/toggleScrollToTop.js"></script>
   </body>
 </html>

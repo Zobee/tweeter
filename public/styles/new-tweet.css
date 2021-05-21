@@ -1,6 +1,8 @@
+/*This class is only applied if the length of the composed tweet exceeds 140 chars*/
 .red-text {
   color: red;
 }
+
 .new-tweet {
   min-width: 100%;
   display: none;
@@ -15,6 +17,7 @@
 .new-tweet textarea{
   background-color: inherit;
   border: none;
+  outline: none;
   border-bottom: 0.2em solid black;
 }
 
@@ -48,5 +51,4 @@
     padding-top: 0;
     margin-top: 0;
   }
-
 }
